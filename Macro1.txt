@@ -1,0 +1,57 @@
+Sub TableDDLGenerator()
+
+Dim FieldVal As String
+Dim GrpVal As String
+
+Worksheets("Details").Select
+
+Dim k As Integer
+k = 2
+
+Dim j As Integer
+j = 1
+
+Dim arr(1 To 100) As String
+ 
+For i = 1 To 10
+
+If IsEmpty(Cells(k, 1)) = True Then
+i = 9999
+MsgBox "Field is empty or exhausted"
+
+Else
+GrpVal = Cells(k, 2)
+
+If GrpVal = "Y" Then
+MsgBox "Great"
+arr(j) = Cells(k, 1)
+
+j = j + 1
+
+End If
+
+End If
+
+k = k + 1
+Next i
+
+Dim m As Integer
+m = UBound(arr)
+MsgBox m
+
+Dim ColArr As String
+Dim FinArr As String
+
+For l = 1 To m
+ColArr = ColArr & arr(l) & "," & vbNewLine
+Next l
+
+FinArr = "Group By " & vbNewLine & ColArr
+
+MsgBox FinArr
+
+'MsgBox "End" & vbNewLine & "Bye"
+
+End Sub
+
+*********************************************************************************************************************************
